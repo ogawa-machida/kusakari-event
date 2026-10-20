@@ -3,7 +3,7 @@
   "short_name": "草刈り記録",
   "description": "小川自治会の草刈り活動記録アプリ",
   "lang": "ja",
-  "id": "./",
+  "id": "./ogawa-kusakari-app",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
