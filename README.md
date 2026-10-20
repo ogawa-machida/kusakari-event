@@ -1,15 +1,11 @@
-# 小川自治会 草刈り活動記録 Ver.2.0
+# 草刈り活動記録 Ver.2.1
 
-## 対応内容
-- PWA識別子 `id` を `./` から `./ogawa-kusakari-app` に変更。ほかのPWAと同一扱いになるリスクを軽減。
-- Service WorkerはHTMLとmanifestをキャッシュしない方式へ変更。旧 `kusakari-shell-*` キャッシュを削除。
-- 「ホーム画面に追加」は任意で、Chromeからそのまま利用できることを案内。
-- バージョン表示 Ver.2.0。Firebaseデータ・ルールは変更なし。
+公開URL: https://ogawa-machida.github.io/kusakari-event/
 
-## 反映方法
-GitHub Pagesの同じディレクトリへ、このZIP内の6ファイルをすべてアップロード。公開が反映されたらChromeで再読み込みし、画面がVer.2.0になったことを確認してください。
-Chromeの「アプリはすでにインストールされています」が残る場合、既存の別アプリまたは旧PWAの登録状態の可能性があります。ホーム画面やAndroidの設定>アプリから「草刈り記録」などを検索し、見つかった場合のみ重複登録を確認してください。ほかの自治会アプリは削除しないでください。
+- manifestのidを `/kusakari-event/ogawa-kusakari-app` に絶対パスで明示。Ver.2.0の相対idと同一の識別URLを維持するため、別アプリ扱いになる変更はしません。
+- start_urlを `/kusakari-event/`、scopeを `/kusakari-event/` に明示。
+- 画面表示バージョンをVer.2.1に変更。
+- Firebaseデータ・ルールは変更なし。
+- GitHub Pagesの `/kusakari-event/` にZIPの6ファイルを同一階層で配置。
 
-## 注意
-manifest ID変更により旧版とは別アプリとして認識される場合があります。既存のホーム画面ショートカットがある場合、追加前に重複を確認してください。ブラウザ上で利用するだけならインストール不要です。
-実機インストール検証は未実施です。
+重要: これはパス指定を明確化する修正であり、Android/Chrome側のPWA起動エラーを確実に解消するものではありません。既存の他アプリやChrome全体のデータを削除しないでください。
