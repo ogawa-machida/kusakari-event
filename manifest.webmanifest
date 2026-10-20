@@ -1,7 +1,7 @@
 {
   "name": "小川自治会 草刈り活動記録",
   "short_name": "草刈り記録",
-  "description": "小川自治会の草刈り活動、施設、写真、参加人数を記録するアプリ",
+  "description": "小川自治会の草刈り活動記録アプリ",
   "lang": "ja",
   "id": "./",
   "start_url": "./index.html",
