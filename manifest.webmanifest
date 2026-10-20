@@ -1,0 +1,26 @@
+{
+  "name": "小川自治会 草刈り活動記録",
+  "short_name": "草刈り記録",
+  "description": "小川自治会の草刈り活動、施設、写真、参加人数を記録するアプリ",
+  "lang": "ja",
+  "id": "./",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#166534",
+  "theme_color": "#166534",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
