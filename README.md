@@ -1,11 +1,18 @@
-# 草刈り活動記録 Ver.2.1
+# 小川自治会 草刈り活動記録 Ver.2.2
 
-公開URL: https://ogawa-machida.github.io/kusakari-event/
+GitHub Pages の kusakari-event/ に全6ファイルを配置してください。
 
-- manifestのidを `/kusakari-event/ogawa-kusakari-app` に絶対パスで明示。Ver.2.0の相対idと同一の識別URLを維持するため、別アプリ扱いになる変更はしません。
-- start_urlを `/kusakari-event/`、scopeを `/kusakari-event/` に明示。
-- 画面表示バージョンをVer.2.1に変更。
-- Firebaseデータ・ルールは変更なし。
-- GitHub Pagesの `/kusakari-event/` にZIPの6ファイルを同一階層で配置。
+## 役割
+- 現場報告者：共通PIN 1234 → 現場報告者 → 担当公園を選択。写真・機材まとめチェック・現場報告。
+- 管理者：共通PIN 1234 → 管理者 → 管理者コード 5678。活動記録・全体人数・施設・報告書等。
 
-重要: これはパス指定を明確化する修正であり、Android/Chrome側のPWA起動エラーを確実に解消するものではありません。既存の他アプリやChrome全体のデータを削除しないでください。
+**重要：これらのPIN・管理者コードはクライアント側の画面切替にすぎません。Firebaseの権限分離ではありません。** 本番で厳格な権限制御を行うにはFirebase AuthとDB/Storage Rulesのロール別設計が必要です。コードを利用者に配布しないでください。
+
+現場報告は `kusakari/events/2026-11-29/fieldReports`、機材チェックは `equipmentReports` に公園別保存します。従来のデータは保持します。機材の既存個別使用記録も維持します。
+
+公開前にFirebase匿名認証・Realtime Database Rules・Storage Rules、複数端末での保存動作を確認してください。
+
+Ver.2.4: 現場報告者は開始前の人数を先に保存し、終了時に再確認して保存。人数の増減があれば理由を記入。管理者は公園別の開始・終了人数を確認。
+
+## Ver.2.4 機材ごとの写真見本・撮影
+現場報告者が使用機材をチェックすると、各機材の写真見本と撮影ボタンが表示されます。ボタンから公園・機材・作業場面・説明を自動設定し、従来のFirebase Storage / Realtime Databaseへ保存します。保存済み枚数を機材別に表示します。見本画像は説明用イメージであり、実際の機材型式や作業の安全性を保証するものではありません。安全な場所から撮影してください。
