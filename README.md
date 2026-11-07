@@ -8,3 +8,26 @@ Tesseract.js 5.1.1（日本語＋英語）とPDF.js 4.10.38をCDNからオンデ
 Firebase Realtime Databaseルールは変更していません。最新版のkusakari匿名認証ルールを前提としています。Firebase Storageのアクセス権は別管理で、領収書アップロードが失敗する場合はStorageルールを確認してください。匿名認証は本番の個人情報・決済情報を扱う用途には適しません。
 
 Ver.2.9からその他の画面・保存方式は維持しています。Firebaseへの自動デプロイは行っていません。ブラウザ実機でのOCR読み取り・Firebase保存の動作確認は未実施です。
+
+Ver.3.2: 助成金購入品の表示名を領収書PDFファイル名（拡張子除外）9件に統一。従来の8品目金額は照合前の参考値として保持し、9件へ推測配分しない。
+
+Ver.3.3: 領収書アップロード進捗表示・60秒タイムアウト・エラー内容表示を追加。Firebaseルール変更なし。
+
+
+## Ver.3.4 PDF原本保存（Storage不要）
+- 助成金画面の領収書はPDFのみ、1ファイル最大2MB。Firebase Realtime Databaseの `/kusakari/.../receiptPdf/<id>` にbase64分割保存します。
+- 経費一覧の「PDF原本を取得」からPDFを復元してダウンロードできます。
+- Realtime Database匿名認証の既存ルールを利用。ルールの変更は不要です。
+- 過去のFirebase Storageに保存した原本は従来のURL表示を維持します。
+- 匿名ユーザー全員が閲覧可能なテスト設定のため、個人情報やカード情報を含む原本はアップロードしないでください。
+- 大きいPDFは2MB以下に圧縮してから登録してください。
+- 画像など他の画面で使うFirebase Storage処理は変更していません。
+
+
+## Ver.3.5 活動写真のRealtime Database保存
+- 活動写真をJPEGに圧縮（長辺最大1600px）し、`kusakari/events/2026-11-29/photoImages/{id}` に保存。
+- `photos/{id}` にメタデータと `photoDbId` を保存。画像本体は一覧購読対象から分離。
+- 写真一覧の表示・ダウンロード・削除を対応。
+- 旧Firebase Storage写真は既存URLが有効な場合のみ閲覧可能（Storage未設定では表示不可）。
+- Realtime Database無料枠の容量制限に注意。匿名認証ルールでは全匿名利用者が閲覧・変更可能。
+- 領収書PDFのRealtime Database保存はVer.3.4のまま維持。
